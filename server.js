@@ -1,7 +1,9 @@
+require("dotenv").config();
 const express = require("express");
 const { engine } = require('express-handlebars');
 const path = require('path');
 
+const sequelize = require('./config/connection');
 const mainRouter = require("./controllers");
 
 const app = express();
@@ -16,6 +18,8 @@ app.use(express.json());
 app.use(mainRouter);
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.listen(PORT, () => {
-    console.log("Listening on http://localhost:" + PORT);
+sequelize.sync({ force: false }).then(() => {
+    app.listen(PORT, () => {
+        console.log("Listening on http://localhost:" + PORT);
+    });
 });
