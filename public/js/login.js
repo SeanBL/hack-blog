@@ -18,9 +18,8 @@ document.getElementById('login_form').addEventListener("submit", (event) => {
     }).then((result) => {
         if (!result.ok) {
             document.getElementById("errors").textContent = "Unable to login";
-            return null;
         } else {
-            return result.json();
+            window.location.replace('/');
         }
     })
 });
