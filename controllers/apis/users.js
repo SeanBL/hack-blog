@@ -5,6 +5,7 @@ const User = require('../../models/user');
 
 const usersRouter = new Router();
 
+//For login
 usersRouter.post("/login", async (req, res) => {
     const { username, password } = req.body;
 
@@ -27,6 +28,7 @@ usersRouter.post("/login", async (req, res) => {
     res.end();
 })
 
+//For signup
 usersRouter.post("/", async (req, res) => {
     const { username, password } = req.body;
 
