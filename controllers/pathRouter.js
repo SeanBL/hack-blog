@@ -1,44 +1,43 @@
 const { Router} = require('express');
-const jwt = require('jsonwebtoken');
 const path = require('path');
 
-const User = require('../models/user')
+const auth = require('../middleware/auth');
+const Blog = require('../models/blog');
 
 const pathRouter = new Router;
 
-pathRouter.get('/', async (req, res) => {
-    const { logintoken } = req.cookies;
-    console.log(req.cookies);
-    // if (!req.cookies) {
-    //     res.redirect('/login');
-    //     return;
-    // }
-    try {
-        const data = jwt.verify(logintoken, process.env.JWT_KEY);
-        const { id } = data;
-        console.log(data);
+pathRouter.get('/', auth, async (req, res) => {
+    const plainUser = req.user.get({ plain: true });
 
-        const user = await User.findByPk(id);
-        const plainUser = user.get({ plain: true })
+    const blogs = await Blog.findAll({
+        where: {
+            user_id: req.user.id,
+        },
+    });
 
-        res.render('home', {
-            user: plainUser,
-        });
-    } catch (error) {
-        if (error.message === "invalid token" || error.message === "jwt must be provided") {
-            res.redirect('/login');
-        } else {
-            console.log(error);
-            res.status(500).end("Something went wrong");
-        }
-    }
-    
+    const plainBlogs = blogs.map((blog) => blog.get({ plain: true }));
 
-    
+    console.log(blogs);
+
+    res.render('home', {
+        user: plainUser,
+        isLoggedIn: !!req.user,
+        blogs: plainBlogs,
+    });  
 });
 
 pathRouter.get('/login', (req, res) => {
     res.render('login');
+})
+
+pathRouter.get('/dashboard', auth, async (req, res) => {
+    const plainUser = req.user.get({ plain: true });
+
+    res.render('dashboard', {
+        user: plainUser,
+        isLoggedIn: !!req.user,
+        dashboard: true,
+    });  
 })
 
 module.exports = pathRouter;
