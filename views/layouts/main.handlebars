@@ -11,14 +11,15 @@
     <header>
         <nav class="nav-bar">
             <button class="navBar-btn" id="home-btn">Home</button>
+            <a href="/homepage">Home</a>
             <a href="/dashboard">Dashboard</a>
-            <button class="navBar-btn" id="dashboard-btn">Dashboard</button>
             {{#if isLoggedIn}}
             <button class="navBar-btn" id="login-btn" hidden="hidden">Login</button>
             {{else}}
             <button class="navBar-btn" id="login-btn">Login</button>
+            <a href="/login">Login</a>
             {{/if}}
-            <button class="navBar-btn" id="logout-btn">Logout</button>
+            <button class="navBar-btn logout" id="logout-btn">Logout</button>
         </nav>
         {{!-- {{#if dashboard}}
         <div>Your Dashboard</div>
@@ -29,3 +30,4 @@
     {{{body}}}
 </body>
 </html>
+<script src="../../js/logout.js"></script>
