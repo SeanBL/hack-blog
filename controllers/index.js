@@ -9,4 +9,5 @@ const allRouter = new Router();
 allRouter.use('/', pathRouter);
 allRouter.use('/api', apiRouter);
 
+
 module.exports = allRouter;

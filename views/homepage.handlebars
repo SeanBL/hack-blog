@@ -1,3 +1,14 @@
 <section>
-    
+    This is the homepage
+    <div>
+        {{#each blogs as |blog|}}
+        <div>
+            <span>{{blog.id}}</span>
+            <span>{{blog.title}}</span>
+            <span>{{blog.body}}</span>
+            <span>{{blog.date}}</span>
+            <span>{{user.username}}</span>
+        </div>
+        {{/each}}
+    </div>
 </section>

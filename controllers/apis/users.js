@@ -5,6 +5,7 @@ const User = require('../../models/user');
 
 const usersRouter = new Router();
 
+
 //For login
 usersRouter.post("/login", async (req, res) => {
     const { username, password } = req.body;
@@ -21,15 +22,15 @@ usersRouter.post("/login", async (req, res) => {
         return;
     }
 
-    const token = jwt.sign({ id: user.id }, process.env.JWT_KEY);
+    const token = jwt.sign({ id: user.id }, process.env.JWT_KEY, { expiresIn: '1d' });
 
-    res.cookie('logintoken', token, { maxAge: 900000, httpOnly: true });
+    res.cookie('logintoken', token/*, { maxAge: 900000, httpOnly: true }*/);
 
     res.end();
-})
+});
 
 //For signup
-usersRouter.post("/", async (req, res) => {
+usersRouter.post("/signup", async (req, res) => {
     const { username, password } = req.body;
 
     const user = await User.findOne({ where: { username, }});

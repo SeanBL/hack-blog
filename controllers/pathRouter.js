@@ -2,12 +2,12 @@ const { Router} = require('express');
 const path = require('path');
 
 const auth = require('../middleware/auth');
-const Blog = require('../models/blog');
+const { Blog, User } = require('../models');
 
 const pathRouter = new Router;
 
-pathRouter.get('/', auth, async (req, res) => {
-    const plainUser = req.user.get({ plain: true });
+pathRouter.get('/', async (req, res) => {
+    //const plainUser = req.user.get({ plain: true });
 
     // use later for homepage
     // const blogs = await Blog.findAll({
@@ -20,16 +20,43 @@ pathRouter.get('/', auth, async (req, res) => {
 
     // console.log(blogs);
 
-    res.render('home', {
-        user: plainUser,
-        isLoggedIn: !!req.user,
+    res.render('homepage', {
+        //user: plainUser,
+        //isLoggedIn: !!req.user,
         // blogs: plainBlogs,
     });  
 });
 
+pathRouter.get('/homepage', async (req, res) => {
+    //const plainBlogs = req.params;
+
+    const blogs = await Blog.findAll({
+        attributes: ["id", "title", "body", "date"],
+        include: [{
+            model: User,
+            attributes: ["username"],
+        },
+        ],
+    });
+
+    const plainBlogs = blogs.map((blog) => blog.get({ plain: true }));
+
+    console.log(blogs)
+
+    res.render('homepage', {
+        blogs: plainBlogs,
+    });
+    
+});
+
+
 pathRouter.get('/login', (req, res) => {
     res.render('login');
-})
+});
+
+pathRouter.get('/signup', (req, res) => {
+    res.render('signup');
+});
 
 pathRouter.get('/dashboard', auth, async (req, res) => {
     const plainUser = req.user.get({ plain: true });
