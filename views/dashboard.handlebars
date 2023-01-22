@@ -1,12 +1,14 @@
 <div>Your Dashboard</div>
 <div>
     {{#each blogs as |blog|}}
-    <div>
-        <span>{{blog.id}}</span>
-        <span>{{blog.title}}</span>
-    </div>
+    <button>
+        <a href="/updateblog/{{blog.id}}">
+            <span>{{blog.id}}</span>
+            <span>{{blog.title}}</span>
+            <span>{{blog.date}}</span>
+        </a>
+    </button>
     {{/each}}
 </div>
 <a href="/createblog">+ New Post</a>
 
-<script src="../js/dashboard.js"></script>

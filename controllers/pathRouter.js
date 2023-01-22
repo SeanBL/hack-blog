@@ -95,4 +95,21 @@ pathRouter.get('/createblog', auth, async (req, res) => {
     });  
 })
 
+pathRouter.get("/updateblog/:id", async (req, res) => {
+    const { id } = req.params;
+
+    const blog = await Blog.findByPk(id);
+
+    if (!blog) {
+        res.status(404).end("Blog does not exist");
+        return;
+    }
+
+    const simpleBlog = blog.get({ simple: true })
+
+    res.render('updateblog', {
+        blog: simpleBlog,
+    });
+});
+
 module.exports = pathRouter;
