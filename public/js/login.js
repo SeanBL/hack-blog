@@ -19,7 +19,7 @@ document.getElementById('login_form').addEventListener("submit", (event) => {
         if (!result.ok) {
             document.getElementById("errors").textContent = "Unable to login";
         } else {
-            window.location.replace('/');
+            window.location.replace('/homepage');
         }
     })
 });
