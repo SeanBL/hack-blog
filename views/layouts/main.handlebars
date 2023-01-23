@@ -10,16 +10,15 @@
 <body>
     <header>
         <nav class="nav-bar">
-            <button class="navBar-btn" id="home-btn">Home</button>
-            <a href="/homepage">Home</a>
+            <a href="/">Home</a>
             <a href="/dashboard">Dashboard</a>
+           
             {{#if isLoggedIn}}
-            <button class="navBar-btn" id="login-btn" hidden="hidden">Login</button>
+            <a hidden="hidden" href="/login" >Login</a>
             {{else}}
-            <button class="navBar-btn" id="login-btn">Login</button>
             <a href="/login">Login</a>
             {{/if}}
-            <button class="navBar-btn logout" id="logout-btn">Logout</button>
+            <a href="/login" id="logout-btn">Logout</a>
         </nav>
         {{!-- {{#if dashboard}}
         <div>Your Dashboard</div>

@@ -6,28 +6,27 @@ const { Blog, User, Comment } = require('../models');
 
 const pathRouter = new Router;
 
+// pathRouter.get('/', async (req, res) => {
+//     const plainUser = req.user.get({ plain: true });
+
+//     use later for homepage
+//     const blogs = await Blog.findAll({
+//         where: {
+//             user_id: req.user.id,
+//         },
+//     });
+
+//     const plainBlogs = blogs.map((blog) => blog.get({ plain: true }));
+
+//     console.log(blogs);
+
+//     res.render('homepage', {
+//         user: plainUser,
+//         isLoggedIn: !!req.user,
+//         blogs: plainBlogs,
+//     });  
+// });
 pathRouter.get('/', async (req, res) => {
-    //const plainUser = req.user.get({ plain: true });
-
-    // use later for homepage
-    // const blogs = await Blog.findAll({
-    //     where: {
-    //         user_id: req.user.id,
-    //     },
-    // });
-
-    // const plainBlogs = blogs.map((blog) => blog.get({ plain: true }));
-
-    // console.log(blogs);
-
-    res.render('homepage', {
-        //user: plainUser,
-        //isLoggedIn: !!req.user,
-        // blogs: plainBlogs,
-    });  
-});
-
-pathRouter.get('/homepage', async (req, res) => {
     //const plainBlogs = req.params;
 
     const blogs = await Blog.findAll({
@@ -50,6 +49,7 @@ pathRouter.get('/homepage', async (req, res) => {
     const plainBlogs = blogs.map((blog) => blog.get({ plain: true }));
 
     console.log(JSON.stringify(plainBlogs));
+    
 
     res.render('homepage', {
         blogs: plainBlogs,
@@ -57,9 +57,44 @@ pathRouter.get('/homepage', async (req, res) => {
     
 });
 
+pathRouter.get('/homepage', auth, async (req, res) => {
+    //const plainBlogs = req.params;
+
+    const blogs = await Blog.findAll({
+        attributes: ["id", "title", "body", "date"],
+        include: [{
+            model: User,
+            attributes: ["username"],
+        },
+        {
+            model: Comment,
+            attributes: ['id', 'body', 'date', 'user_id', 'blog_id'],
+            include: [{
+                model: User,
+                attributes: ['username']
+            }]
+        }
+        ],
+    });
+
+    const plainBlogs = blogs.map((blog) => blog.get({ plain: true }));
+
+    console.log(JSON.stringify(plainBlogs));
+    
+
+    res.render('homepage', {
+        blogs: plainBlogs,
+        isLoggedIn: !!req.user,
+    });
+    
+});
+
 
 pathRouter.get('/login', (req, res) => {
-    res.render('login');
+    
+
+    res.render('login', {
+    });
 });
 
 pathRouter.get('/signup', (req, res) => {
@@ -120,7 +155,7 @@ pathRouter.get("/updateblog/:id", async (req, res) => {
     });
 });
 
-pathRouter.get("/comments/:id", async (req, res) => {
+pathRouter.get("/comments/:id", auth, async (req, res) => {
     const { id } = req.params;
 
     const blog = await Blog.findByPk(id);
@@ -134,6 +169,7 @@ pathRouter.get("/comments/:id", async (req, res) => {
 
     res.render('comments', {
         blog: simpleBlog,
+        isLoggedIn: !!req.user,
     });
 })
 
