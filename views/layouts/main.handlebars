@@ -10,13 +10,18 @@
 <body>
     <header>
         <nav class="nav-bar">
-            <a href="/">Home</a>
-            <a href="/dashboard">Dashboard</a>
+            {{!-- <a href="/">Home</a> --}}
+            {{!-- <a href="/dashboard">Dashboard</a> --}}
            
             {{#if isLoggedIn}}
+            <a href="/homepage">Home</a>
             <a hidden="hidden" href="/login" >Login</a>
+            <a href="/dashboard">Dashboard</a>
             {{else}}
+            <a href="/">Home</a>
+            <a href="/dashboard">Dashboard</a>
             <a href="/login">Login</a>
+            
             {{/if}}
             <a href="/login" id="logout-btn">Logout</a>
         </nav>
