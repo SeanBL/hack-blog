@@ -2,7 +2,7 @@ const { Router} = require('express');
 const path = require('path');
 
 const auth = require('../middleware/auth');
-const { Blog, User } = require('../models');
+const { Blog, User, Comment } = require('../models');
 
 const pathRouter = new Router;
 
@@ -36,12 +36,20 @@ pathRouter.get('/homepage', async (req, res) => {
             model: User,
             attributes: ["username"],
         },
+        {
+            model: Comment,
+            attributes: ['id', 'body', 'date', 'user_id', 'blog_id'],
+            include: [{
+                model: User,
+                attributes: ['username']
+            }]
+        }
         ],
     });
 
     const plainBlogs = blogs.map((blog) => blog.get({ plain: true }));
 
-    console.log(blogs)
+    console.log(JSON.stringify(plainBlogs));
 
     res.render('homepage', {
         blogs: plainBlogs,
@@ -111,5 +119,22 @@ pathRouter.get("/updateblog/:id", async (req, res) => {
         blog: simpleBlog,
     });
 });
+
+pathRouter.get("/comments/:id", async (req, res) => {
+    const { id } = req.params;
+
+    const blog = await Blog.findByPk(id);
+
+    if (!blog) {
+        res.status(404).end("Blog does not exist");
+        return;
+    }
+
+    const simpleBlog = blog.get({ simple: true })
+
+    res.render('comments', {
+        blog: simpleBlog,
+    });
+})
 
 module.exports = pathRouter;

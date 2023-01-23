@@ -1,14 +1,19 @@
 <section>
     This is the homepage
     <div>
-        {{#each blogs as |blog|}}
+        {{#blogs}}
         <div>
-            <span>{{blog.id}}</span>
-            <span>{{blog.title}}</span>
-            <span>{{blog.body}}</span>
-            <span>{{blog.date}}</span>
-            <span>{{user.username}}</span>
+            <a href="comments/{{id}}">
+            <span>{{id}}</span>
+            <span>{{title}}</span>
+            <span>{{body}}</span>
+            <span>{{date}}</span>
+            <span>{{username}}</span>
+            </a>
         </div>
-        {{/each}}
+        {{#comments}}
+        <span>{{body}}</span>
+        {{/comments}}
+        {{/blogs}}
     </div>
 </section>
