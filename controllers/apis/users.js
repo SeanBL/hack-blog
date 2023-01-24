@@ -1,9 +1,34 @@
 const { Router } = require("express");
 const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
 
 const User = require('../../models/user');
 
 const usersRouter = new Router();
+
+usersRouter.post('/', async (req, res) => {
+    const { username, password } = req.body;
+
+    const user = await User.findOne({
+        where: {
+            username,
+        },
+    });
+
+    if (user) {
+        res.status(409).end("User with username already exists");
+        return;
+    }
+
+    const newUser = await User.create({
+        username,
+        password,
+    });
+
+    res.status(200).json({
+        id: newUser.id,
+    });
+})
 
 
 //For login
@@ -17,7 +42,9 @@ usersRouter.post("/login", async (req, res) => {
         return;
     }
 
-    if (user.password != password) {
+    const passwordValid = bcrypt.compareSync(password, user.password);
+
+    if (!passwordValid) {
         res.status(401).end("Bad password");
         return;
     }
