@@ -21,7 +21,7 @@ blogRouter.post('/', auth, async (req, res) => {
 });
 
 blogRouter.put('/:id', auth, async (req, res) => {
-    const { body } = req.body;
+    const { body, title } = req.body;
 
     const blog = await Blog.findOne({
         where: {
@@ -35,6 +35,7 @@ blogRouter.put('/:id', auth, async (req, res) => {
     }
 
     await blog.update({
+        title,
         body,
     })
 

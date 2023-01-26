@@ -1,14 +1,23 @@
-<div>Your Dashboard</div>
-<div>
-    {{#each blogs as |blog|}}
-    <button>
-        <a href="/updateblog/{{blog.id}}">
-            <span>{{blog.id}}</span>
-            <span>{{blog.title}}</span>
-            <span>{{blog.date}}</span>
-        </a>
-    </button>
-    {{/each}}
-</div>
-<a href="/createblog">+ New Post</a>
+
+    <div class="hack-header">
+        <div class="dashboard-title">
+            Your Dashboard
+        </div>
+    </div>
+
+    <div>
+        {{#each blogs as |blog|}}
+        <div class="dash-blog-header">
+            <a style="text-decoration: none;" href="/updateblog/{{blog.id}}">
+                <span class="dash-title">{{blog.title}}</span>
+                <span class="blog-date">{{newDate blog.date}}</span>
+            </a>
+        </div>
+        {{/each}}
+    </div>
+    <div class="center">
+        <a class="create-btn" style="text-decoration: none;" href="/createblog">+ New Post</a>
+    </div>
+
+{{!-- <script src="../js/createblog.js"></script> --}}
 

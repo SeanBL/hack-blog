@@ -1,0 +1,45 @@
+
+
+.hack-title {
+    font-size: 30px;
+    font-weight: bold;
+    border: 1px solid;
+    border-radius: 5px;
+    width: fit-content;
+    padding: 5px 10px 5px 10px;
+    background-color: white;
+    color: blueviolet;
+    box-shadow: 10px 10px 20px rgb(44, 44, 44);
+}
+
+.blog-header {
+    border: 3px solid blueviolet;
+    margin: 5px 20px 0px 20px; 
+    padding: 5px 15px 5px 15px;
+    background-color: blueviolet;
+    color: white;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.username {
+    float: right;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.blog-date {
+    float: right;
+    font-size: 15px;
+    margin-top: 5px;
+    color: white;
+}
+
+.blog-body {
+    border: 3px solid blueviolet;
+    margin: 0px 20px 0px 20px; 
+    padding: 15px;
+}
