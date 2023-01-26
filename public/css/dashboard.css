@@ -1,0 +1,51 @@
+
+
+.dashboard-title {
+    font-size: 30px;
+    font-weight: bold;
+    border: 1px solid;
+    border-radius: 5px;
+    width: fit-content;
+    padding: 5px 10px 5px 10px;
+    background-color: white;
+    color: blueviolet;
+    box-shadow: 10px 10px 20px rgb(44, 44, 44);
+}
+
+.dash-blog-header {
+    border: 3px solid blueviolet;
+    border-radius: 5px;
+    margin: 5px 20px 0px 20px; 
+    padding: 5px 15px 5px 15px;
+    background-color: blueviolet;
+    color: white;
+}
+
+.dash-title {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.blog-date {
+    font-size: 15px;;
+    float: right;
+    color: white;
+}
+
+.create-btn {
+    border: 1px solid blueviolet;
+    border-radius: 5px;
+    padding: 5px 10px 5px 10px;
+    font-size: 25px;
+    background-color: blueviolet;
+    color: white;
+}
+
+.center {
+    position: fixed;
+    left: 50%;
+    bottom: 10%;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+}

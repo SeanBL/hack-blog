@@ -1,23 +1,28 @@
-<div>
-    Edit Post
-    <div id="">
-    {{blog.id}}
-    {{blog.title}} 
-    <div id="update-error"></div>
-    <textarea id="blog-content">{{blog.body}}</textarea>
-    </div>
-    <div>
-        <button id="update-btn">
-            Update Post 
-        </button>
-    </div>
-    <div id="delete-error"></div>
-    <div>
-        <button id="delete-btn">
-            Delete
-        </button>
-    </div>
-    
+<div class="hack-header">
+    <div class="dashboard-title">Your Dashboard</div>
 </div>
 
+<div>
+    <div class="edit-header">Edit Post</div>
+
+    <div class="edit-box">
+        <div class="blog-title">Title</div>
+        <div>
+            {{!-- <input class="edit-title" type="text" placeholder="{{blog.title}}" id="blog-title"> --}}
+            <textarea class="edit-title" id="blog-title">{{blog.title}}</textarea>
+            <div id="update-error"></div>
+            <div>Content</div>
+            <textarea class="edit-content" id="blog-content">{{blog.body}}</textarea>
+        </div>
+        
+        <div class="update-button">
+            <button class="update-btn" id="update-btn">Update Post </button>
+        </div>
+
+        <div class="delete-button">
+            <button class="delete-btn" id="delete-btn">Delete</button>
+        </div>
+    </div>
+
+</div>
 <script src="../js/updateblog.js"></script>

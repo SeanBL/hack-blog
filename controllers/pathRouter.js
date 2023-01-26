@@ -6,26 +6,7 @@ const { Blog, User, Comment } = require('../models');
 
 const pathRouter = new Router;
 
-// pathRouter.get('/', async (req, res) => {
-//     const plainUser = req.user.get({ plain: true });
 
-//     use later for homepage
-//     const blogs = await Blog.findAll({
-//         where: {
-//             user_id: req.user.id,
-//         },
-//     });
-
-//     const plainBlogs = blogs.map((blog) => blog.get({ plain: true }));
-
-//     console.log(blogs);
-
-//     res.render('homepage', {
-//         user: plainUser,
-//         isLoggedIn: !!req.user,
-//         blogs: plainBlogs,
-//     });  
-// });
 pathRouter.get('/', async (req, res) => {
     //const plainBlogs = req.params;
 
@@ -53,6 +34,7 @@ pathRouter.get('/', async (req, res) => {
 
     res.render('homepage', {
         blogs: plainBlogs,
+        style: 'homepage.css',
     });
     
 });
@@ -85,6 +67,7 @@ pathRouter.get('/homepage', auth, async (req, res) => {
     res.render('homepage', {
         blogs: plainBlogs,
         isLoggedIn: !!req.user,
+        style: 'homepage.css'
     });
     
 });
@@ -119,6 +102,7 @@ pathRouter.get('/dashboard', auth, async (req, res) => {
         isLoggedIn: !!req.user,
         dashboard: true,
         blogs: plainBlogs,
+        style: 'dashboard.css',
     });  
 });
 
@@ -152,6 +136,7 @@ pathRouter.get("/updateblog/:id", async (req, res) => {
 
     res.render('updateblog', {
         blog: simpleBlog,
+        style: 'updateblog.css',
     });
 });
 

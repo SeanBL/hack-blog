@@ -4,6 +4,7 @@ document.getElementById("update-btn").addEventListener("click", (event) => {
     console.log("works");
 
     const body = document.getElementById("blog-content").value;
+    const title = document.getElementById("blog-title").value;
     const blog_id = window.location.toString().split('/')[window.location.toString().split('/').length -1];
     console.log(body, blog_id);
 
@@ -13,6 +14,7 @@ document.getElementById("update-btn").addEventListener("click", (event) => {
             'content-Type': 'application/json'
         },
         body: JSON.stringify({
+            title,
             body,
         }),
     }).then((result) => {
