@@ -1,14 +1,22 @@
 <section>
-    This is the homepage
+    <div class="hack-header">
+        <div class="hack-title">
+            The Hack Blog
+        </div>  
+    </div>
     <div>
         {{#blogs}}
         <div>
-            <a href="comments/{{id}}">
-            <span>{{id}}</span>
-            <span>{{title}}</span>
-            <span>{{body}}</span>
-            <span>{{date}}</span>
-            <span>{{username}}</span>
+            <a style="text-decoration: none" href="comments/{{id}}">
+            {{!-- <span>{{id}}</span> --}}
+            <div class="blog-header">
+                <span class="title">{{title}}</span>
+                <span class="username">Posted by {{user.username}} on {{newDate date}}</span>
+                
+            </div>
+            
+            <div class="blog-body">{{body}}</div>
+            
             </a>
         </div>
         {{#comments}}

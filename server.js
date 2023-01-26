@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const cookieParser = require('cookie-parser');
+const exphbs = require('express-handlebars');
 
 const { engine } = require('express-handlebars');
 const path = require('path');
@@ -16,10 +17,7 @@ const app = express();
 
 const PORT = process.env.PORT || 3001;
 
-
-
-
-app.engine('handlebars', engine( helpers ));
+app.engine('handlebars', engine({ helpers }));
 app.set('view engine', 'handlebars');
 
 app.use(express.json());
