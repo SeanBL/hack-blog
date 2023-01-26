@@ -14,16 +14,16 @@
             {{!-- <a href="/dashboard">Dashboard</a> --}}
            
             {{#if isLoggedIn}}
-            <a href="/homepage">Home</a>
-            <a hidden="hidden" href="/login" >Login</a>
-            <a href="/dashboard">Dashboard</a>
+            <a style="text-decoration: none" class="home-link" href="/homepage">Home</a>
+            <a style="text-decoration: none" class="login-link" hidden="hidden" href="/login" >Login</a>
+            <a style="text-decoration: none" class="dashboard-link" href="/dashboard">Dashboard</a>
             {{else}}
-            <a href="/">Home</a>
-            <a href="/dashboard">Dashboard</a>
-            <a href="/login">Login</a>
+            <a style="text-decoration: none" class="home-link" href="/">Home</a>
+            <a style="text-decoration: none" class="dashboard-link" href="/dashboard">Dashboard</a>
+            <a style="text-decoration: none" class="login-link" href="/login">Login</a>
             
             {{/if}}
-            <a href="/login" id="logout-btn">Logout</a>
+            <a style="text-decoration: none" class="logout-link" href="/login" id="logout-btn">Logout</a>
         </nav>
         {{!-- {{#if dashboard}}
         <div>Your Dashboard</div>
