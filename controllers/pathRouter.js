@@ -119,10 +119,11 @@ pathRouter.get('/createblog', auth, async (req, res) => {
         user: plainUser,
         isLoggedIn: !!req.user,
         dashboard: true,
+        style: 'createblog.css'
     });  
 })
 
-pathRouter.get("/updateblog/:id", async (req, res) => {
+pathRouter.get("/updateblog/:id", auth, async (req, res) => {
     const { id } = req.params;
 
     const blog = await Blog.findByPk(id);
@@ -136,6 +137,7 @@ pathRouter.get("/updateblog/:id", async (req, res) => {
 
     res.render('updateblog', {
         blog: simpleBlog,
+        isLoggedIn: !!req.user,
         style: 'updateblog.css',
     });
 });
@@ -143,7 +145,16 @@ pathRouter.get("/updateblog/:id", async (req, res) => {
 pathRouter.get("/comments/:id", auth, async (req, res) => {
     const { id } = req.params;
 
-    const blog = await Blog.findByPk(id);
+    const blog = await Blog.findOne({
+        where: {
+            id: req.params.id,
+        },
+        include: [{
+            model: User,
+            attributes: ["username"],
+        }],
+    });
+    
 
     if (!blog) {
         res.status(404).end("Blog does not exist");
@@ -151,10 +162,12 @@ pathRouter.get("/comments/:id", auth, async (req, res) => {
     }
 
     const simpleBlog = blog.get({ simple: true })
-
+    simpleBlog.user = simpleBlog.user.get({ simple: true });
+    console.log(simpleBlog);
     res.render('comments', {
         blog: simpleBlog,
         isLoggedIn: !!req.user,
+        style: 'comment.css'
     });
 })
 

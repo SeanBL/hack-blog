@@ -1,0 +1,62 @@
+.dashboard-title {
+    font-size: 30px;
+    font-weight: bold;
+    border: 1px solid;
+    border-radius: 5px;
+    width: fit-content;
+    padding: 5px 10px 5px 10px;
+    background-color: white;
+    color: blueviolet;
+    box-shadow: 10px 10px 20px rgb(44, 44, 44);
+}
+
+.blog-header {
+    border: 3px solid blueviolet;
+    margin: 5px 20px 0px 20px; 
+    padding: 5px 15px 5px 15px;
+    background-color: blueviolet;
+    color: white;
+}
+.blog-box {
+    border: 3px solid blueviolet;
+    margin: 0px 20px 0px 20px; 
+    padding: 5px 25px 20px 15px;
+}
+
+.post-title {
+    margin-bottom: 5px;
+}
+
+.input-title {
+    width: 99%;
+    height: 25px;
+    margin-bottom: 10px;
+    border: 1px solid blue;
+    padding: 3px 10px 3px 10px;
+    font-size: 17px;
+}
+
+.content-title {
+    margin-bottom: 5px;
+}
+
+.blog-content {
+    width: 99%;
+    height: 40px;
+    padding: 10px 10px 10px 10px;
+    border: 1px solid blue;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.create-btn {
+    font-size: 18px;
+    width: 101.5%;
+    margin-right: 10px;
+    padding: 10px 5px 10px 5px;
+    border-radius: 5px;
+    background-color: rgb(126, 126, 126);
+    color: white;
+    border: none;
+}
+

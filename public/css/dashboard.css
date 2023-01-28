@@ -1,5 +1,4 @@
 
-
 .dashboard-title {
     font-size: 30px;
     font-weight: bold;
@@ -31,6 +30,7 @@
     font-size: 15px;;
     float: right;
     color: white;
+    margin-top: 4px;
 }
 
 .create-btn {

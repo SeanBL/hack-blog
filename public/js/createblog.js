@@ -20,7 +20,7 @@ document.getElementById("blog-form").addEventListener("submit", (event) => {
             document.getElementById("create-blog-error").textContent = "Could not create blog";
             console.log("something went wrong");
         } else {
-            window.location.reload();
+            document.location.replace('/dashboard');
         }
     }); 
 });
