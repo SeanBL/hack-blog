@@ -19,9 +19,18 @@
             
             </a>
         </div>
+        
         {{#comments}}
-        <div>{{body}}</div>
-        {{/comments}}
+        <div class="comment-header"></div>
+        <div class="comment-box">
+            
+            
+                <div class="comment-content">{{body}}</div>
+                <span>-{{user.username}}, </span>
+                <span>{{newDate date}}</span>
+           
+        </div>
+         {{/comments}}
         {{/blogs}}
     </div>
 </section>

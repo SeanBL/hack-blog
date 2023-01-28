@@ -1,19 +1,32 @@
 <section>
-    comments
-    <div>
-        {{blog.id}}
-        {{blog.title}}
-        {{blog.body}}
-        {{blog.date}}
+    <div class="hack-header">
+        <div class="hack-title">
+            The Hack Blog
+        </div>  
     </div>
     
+        <div>
+            <div class="blog-header">
+                <span class="title">{{blog.title}}</span>
+                <span class="username">Posted by {{blog.user.username}} on {{newDate blog.date}}</span>
+                
+            </div>
+            
+            <div class="blog-body">{{blog.body}}</div>
+             
+        </div>
+    
     <div>
-        comment
-        <div id="comment-error"></div>
-        <textarea id="comment"></textarea>
+        <div class="comment-header"></div>
+        <div class="comment-box">
+        <div class="comment-title" id="comment-error">Comment</div>
+        <textarea class="comment-body" id="comment"></textarea>
+        <button class="comment-btn" id="comment-btn">Submit</button>
+        </div>
+        
     </div>
    
-    <button id="comment-btn">Submit</button>
+    
     
 </section>
 

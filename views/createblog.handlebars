@@ -1,14 +1,22 @@
-<div>
-    <div>
-        Your Dashboard
+<section>
+    <div class="hack-header">
+        <div class="dashboard-title">
+            Your Dashboard
+        </div>
     </div>
-    <div>Create New Post</div>
-    <form id="blog-form">
-        <div id="create-blog-error"></div>
-        <div>Title: <input type="text" id="blog-title" placeholder="blog-title"/></div>
-        <div>Content: <textarea id="blog-content" placeholder="blog-content"></textarea></div>
-        <button id="create-blog-btn">Create</button>
+    
+    <div class="blog-header">Create New Post</div>
+    <form class="blog-box" id="blog-form">
+        <div class="post-title" id="create-blog-error">Title</div>
+        <div><input class="input-title" type="text" id="blog-title" placeholder="blog-title"/></div>
+        <div class="content-title">Content</div>
+        <textarea class="blog-content" id="blog-content" placeholder="blog-content"></textarea>
+        <div>
+            <button class="create-btn" id="create-blog-btn">Create</button>
+        </div>
+        
     </form>
-</div>
+        
+</section>
 
 <script src="../js/createblog.js"></script>
