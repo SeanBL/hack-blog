@@ -14,12 +14,10 @@
 - [Questions](#questions)
 
 ## Installation
-To properly run this application, clone a copy of the repository from GitHub. Install inquirer by typing "npm install inqurier@8.2.4". Install mysql as well. Open MySql using the MySql shell, and create a database called "ecommerce_db". Exit out of the Mysql shell, and run "npm run seed" in the CLI to seed the database with values. Next, run node server.js to connect to the server. Open up Insomnia Core and create requests to view, create, update, or delete values from the tables. Here is a link to the GitHub repository: https://github.com/SeanBL/e-commerce-database
+No installation is necessary to use this web application. Click on this link to access the published website: https://hack-blog.herokuapp.com/
 
 ## Usage
-Click on the link below for a video demo on how to use Insomnia to view, create, update, and delete values from the tables.
-
-https://youtu.be/yKRBxyJ-C2k
+When the user clicks on the link above, the user will be taken to the homepage where they can see posts from all users. If the user attempts to commment or click on the dashboard link, the user will be prompted to login or signup. Once the user is logged in, the user will have the option to create blogs, comment on other user's blogs, update blogs, or delete blogs. The GitHub repository can be accessed here: https://github.com/SeanBL/hack-blog   
 
 
 ## License

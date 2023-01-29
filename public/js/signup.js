@@ -20,7 +20,8 @@ document.getElementById('signup_form').addEventListener("submit", (event) => {
             document.getElementById("signup_errors").textContent = "Unable to create user";
             return null;
         } else {
-            return result.json();
+            // return result.json();
+            window.location.replace('/login');
         }
     })
 });
