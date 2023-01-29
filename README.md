@@ -14,12 +14,10 @@
 - [Questions](#questions)
 
 ## Installation
-To properly run this application, clone a copy of the repository from GitHub. Install inquirer by typing "npm install inqurier@8.2.4". Install mysql as well. Open MySql using the MySql shell, and create a database called "ecommerce_db". Exit out of the Mysql shell, and run "npm run seed" in the CLI to seed the database with values. Next, run node server.js to connect to the server. Open up Insomnia Core and create requests to view, create, update, or delete values from the tables. Here is a link to the GitHub repository: https://github.com/SeanBL/e-commerce-database
+No installation is required. You can access the website here:
 
 ## Usage
-Click on the link below for a video demo on how to use Insomnia to view, create, update, and delete values from the tables.
-
-https://youtu.be/yKRBxyJ-C2k
+Once the user clicks on the website link above, the user will be taken to the homepage. The user will be able to see all posts displayed on the homepage, but will need to sign up and then login to access the "dashboard". Once the user is logged in, the user may comment on existing posts found on the homepage. From the dashboard, the user may create new blog posts which will show up on the homepage. The user may also update and delete any of their own posts by clicking on any one of their own posts from the dashboard. A logout button can be found at the navigation bar if the user wishes to logout. 
 
 
 ## License
