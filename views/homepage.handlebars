@@ -8,27 +8,20 @@
         {{#blogs}}
         <div>
             <a style="text-decoration: none" href="comments/{{id}}">
-            {{!-- <span>{{id}}</span> --}}
             <div class="blog-header">
                 <span class="title">{{title}}</span>
                 <span class="username">Posted by {{user.username}} on {{newDate date}}</span>
-                
             </div>
-            
             <div class="blog-body">{{body}}</div>
-            
             </a>
         </div>
         
         {{#comments}}
         <div class="comment-header"></div>
         <div class="comment-box">
-            
-            
                 <div class="comment-content">{{body}}</div>
                 <span>-{{user.username}}, </span>
                 <span>{{newDate date}}</span>
-           
         </div>
          {{/comments}}
         {{/blogs}}
