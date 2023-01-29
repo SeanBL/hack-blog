@@ -1,14 +1,23 @@
+<div class="hack-header">
+        <div class="hack-title">
+            The Hack Blog
+        </div>  
+</div>
 <form id="login_form">
-    Login to Hack Blog
-    <div id="errors"></div>
-    <div>
-        Username: <input type="text" id="username" placeholder="Username Here" />
+    <div class="login-header">Login</div>
+    <div class="login-box">
+        <div id="errors"></div>
+        <div class="username-title">Username</div>
+        <div>
+            <input class="username-input" type="text" id="username" placeholder="Username Here" />
+        </div>
+        <div class="password-title">Password</div>
+        <div>
+            <input class="password-input" type="password" id="password" placeholder="Password Here" />
+        </div>
+        <button class="login-btn">Login</button>
+        <a style="text-decoration: none" id="signup-link" href="/signup">Sign up instead</a>
     </div>
-    <div>
-        Password: <input type="password" id="password" placeholder="Password Here" />
-    </div>
-    <button>Login</button>
-    <a href="/signup">Sign up instead</a>
 </form>
 
 <script src="../js/login.js"></script>

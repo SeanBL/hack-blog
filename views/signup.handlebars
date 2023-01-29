@@ -1,14 +1,27 @@
+<div class="hack-header">
+        <div class="hack-title">
+            The Hack Blog
+        </div>  
+</div>
 <form id="signup_form">
-    Please Register
-    <div id="signup_errors"></div>
-    <div>
-        Username: <input type="text" id="username_register" placeholder="Username Here" />
+    <div class="signup-header">Sign Up</div>
+    <div class="signup-box">
+        <div id="signup_errors"></div>
+        <div class="username-title">Username</div>
+        <div>
+            <input class="username-input" type="text" id="username_register" placeholder="Username Here" />
+        </div>
+        <div class="password-title">Password</div>
+        <div>
+            <input class="password-input" type="password" id="password_register" placeholder="Password Here" />
+        </div>
+        <button class="signup-btn">Sign Up</button>
+        <div>
+            <a style="text-decoration: none" id="login-link" href="/login">Login instead</a>
+        </div>
+        
     </div>
-    <div>
-        Password: <input type="password" id="password_register" placeholder="Password Here" />
-    </div>
-    <button>Sign Up</button>
-    <a href="/login">Login instead</a>
+    
 </form>
 
 <script src="../js/signup.js"></script>

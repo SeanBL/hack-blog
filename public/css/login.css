@@ -1,0 +1,68 @@
+.hack-title {
+    font-size: 30px;
+    font-weight: bold;
+    border: 1px solid;
+    border-radius: 5px;
+    width: fit-content;
+    padding: 5px 10px 5px 10px;
+    background-color: white;
+    color: blueviolet;
+    box-shadow: 10px 10px 20px rgb(44, 44, 44);
+}
+.login-header {
+    border: 3px solid blueviolet;
+    margin: 5px 20px 0px 20px; 
+    padding: 5px 15px 5px 15px;
+    background-color: blueviolet;
+    color: white;
+    font-size: 17px;
+}
+
+.login-box {
+    border: 3px solid blueviolet;
+    margin: 0px 20px 0px 20px; 
+    padding: 5px 20px 30px 20px;
+}
+
+.username-title {
+    margin-bottom: 5px;
+}
+
+.username-input {
+    width: 98%;
+    height: 25px;
+    margin-bottom: 10px;
+    border: 1px solid blue;
+    padding: 3px 10px 3px 10px;
+    font-size: 17px;
+}
+
+.password-title {
+    margin-bottom: 5px;
+}
+
+.password-input {
+    width: 98%;
+    height: 25px;
+    margin-bottom: 10px;
+    border: 1px solid blue;
+    padding: 3px 10px 3px 10px;
+    font-size: 17px;
+}
+
+.login-btn {
+    font-size: 18px;
+    width: 101.5%;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    padding: 10px 5px 10px 5px;
+    border-radius: 5px;
+    background-color: rgb(126, 126, 126);
+    color: white;
+    border: none;
+}
+
+#signup-link {
+    font-size: 18px;
+    color: blue;
+}
