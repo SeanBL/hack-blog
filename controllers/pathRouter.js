@@ -77,11 +77,14 @@ pathRouter.get('/login', (req, res) => {
     
 
     res.render('login', {
+        style: 'login.css'
     });
 });
 
 pathRouter.get('/signup', (req, res) => {
-    res.render('signup');
+    res.render('signup', {
+        style: 'signup.css'
+    });
 });
 
 pathRouter.get('/dashboard', auth, async (req, res) => {
